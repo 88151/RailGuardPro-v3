@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RailGuardPro v3</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+<h1>🚆 RailGuardPro v3</h1>
+
+<p>
+Professional Running Report Generator
+for Indian Railway Train Managers
+</p>
+
+</header>
+
+<div class="container">
+
+<h2>Train Details</h2>
+
+<form id="reportForm">
+
+<label>Train Number</label>
+<input
+type="text"
+id="trainNo"
+placeholder="Enter Train Number"
+required>
+
+<label>Train Name</label>
+<input
+type="text"
+id="trainName"
+placeholder="Enter Train Name">
+
+<label>Date</label>
+<input
+type="date"
+id="date">
+
+<label>Section</label>
+<input
+type="text"
+id="section"
+placeholder="Example : BPL - ET">
+
+<label>Origin Station</label>
+<input
+type="text"
+id="origin">
+
+<label>Destination Station</label>
+<input
+type="text"
+id="destination">
+
+<label>Loco Number</label>
+<input
+type="text"
+id="locoNo">
+
+<label>Loco Type</label>
+
+<select id="locoType">
+
+<option>WAP-7</option>
+
+<option>WAP-4</option>
+
+<option>WAG-9</option>
+
+<option>WDP-4</option>
+
+<option>Other</option>
+
+</select>
+
+<label>Total Load (Tonnes)</label>
+
+<input
+type="number"
+id="load">
+
+<label>Total Coaches</label>
+
+<input
+type="number"
+id="coaches"><h2>Running Details</h2>
+
+<label>Departure Time</label>
+<input
+type="time"
+id="departureTime">
+
+<label>Arrival Time</label>
+<input
+type="time"
+id="arrivalTime">
+
+<label>Total Distance (KM)</label>
+<input
+type="number"
+id="distance">
+
+<label>Total Detention (Minutes)</label>
+<input
+type="number"
+id="detention">
+
+<label>Reason for Detention</label>
+<textarea
+id="reason"
+rows="4"
+placeholder="Enter detention reason..."></textarea>
+
+<label>Special Remarks</label>
+<textarea
+id="remarks"
+rows="4"
+placeholder="Enter special remarks..."></textarea>
+
+<div class="button-group">
+
+<button
+type="button"
+onclick="generateReport()">
+Generate Report
+</button>
+
+<button
+type="reset">
+Reset
+</button>
+
+</div>
+
+</form>
+
+<hr>
+
+<h2>Generated Report</h2>
+
+<div id="reportOutput">
+
+<p>
+Your generated running report will appear here.
+</p>
+
+</div><hr>
+
+<footer>
+
+<h3>RailGuardPro v3</h3>
+
+<p>
+Professional Running Report Generator
+for Indian Railway Train Managers
+</p>
+
+<p>
+© 2026 RailGuardPro
+All Rights Reserved.
+</p>
+
+</footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
