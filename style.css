@@ -1,125 +1,354 @@
 /* ===========================
-   RailGuardPro v3 Style.css
+   RailGuardPro v3
+   Professional Railway Theme
 =========================== */
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#f4f7fa;
-    color:#222;
-    line-height:1.6;
+background:#eef3f8;
+color:#222;
 }
 
 .header{
-    background:#0d47a1;
-    color:white;
-    text-align:center;
-    padding:25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+background:#003366;
+color:white;
+position:sticky;
+top:0;
+z-index:999;
 }
 
-.header h1{
-    font-size:32px;
-    margin-bottom:10px;
+.logo{
+font-size:28px;
+font-weight:700;
 }
 
-.header p{
-    font-size:16px;
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+font-weight:600;
+transition:.3s;
 }
 
-.container{
-    width:95%;
-    max-width:900px;
-    margin:20px auto;
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 0 10px rgba(0,0,0,0.15);
+nav a:hover{
+color:#ffd54f;
 }
 
-h2{
-    color:#0d47a1;
-    margin:20px 0 10px;
+.hero{
+padding:60px 20px;
+text-align:center;
+background:linear-gradient(135deg,#004c99,#0088cc);
+color:white;
 }
 
-label{
-    display:block;
-    font-weight:bold;
-    margin-top:15px;
+.hero h1{
+font-size:42px;
+margin-bottom:15px;
 }
 
-input,
-select,
-textarea{
-    width:100%;
-    padding:10px;
-    margin-top:5px;
-    border:1px solid #ccc;
-    border-radius:6px;
-    font-size:16px;
+.hero p{
+font-size:18px;
+margin-bottom:30px;
 }
 
-textarea{
-    resize:vertical;
-    min-height:100px;
-}.button-group{
-    display:flex;
-    gap:15px;
-    margin-top:20px;
-    flex-wrap:wrap;
+.heroButtons button{
+padding:12px 25px;
+margin:10px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+font-weight:600;
+transition:.3s;
 }
 
-button{
-    flex:1;
-    padding:12px;
-    background:#0d47a1;
-    color:#fff;
-    border:none;
-    border-radius:6px;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:0.3s;
+#loginBtn{
+background:#ff9800;
+color:white;
 }
 
-button:hover{
-    background:#1565c0;
+#themeBtn{
+background:#222;
+color:white;
+}/* ===========================
+   Dashboard Cards
+=========================== */
+
+.dashboard,
+.features,
+.quickTools,
+.report{
+
+padding:50px 20px;
+
 }
 
-#reportOutput{
-    margin-top:20px;
-    padding:15px;
-    border:2px solid #0d47a1;
-    border-radius:8px;
-    background:#f8fbff;
-    white-space:pre-wrap;
+.dashboard h2,
+.features h2,
+.quickTools h2,
+.report h2{
+
+text-align:center;
+margin-bottom:30px;
+font-size:32px;
+color:#003366;
+
 }
+
+.cards{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+
+}
+
+.card{
+
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.10);
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.card h3{
+
+margin-bottom:15px;
+color:#004c99;
+
+}
+
+.card p{
+
+margin-bottom:15px;
+
+}
+
+.card input,
+.card select{
+
+width:100%;
+padding:10px;
+margin:10px 0;
+border:1px solid #cccccc;
+border-radius:8px;
+
+}
+
+.card button{
+
+width:100%;
+padding:12px;
+background:#0057b8;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:600;
+
+}
+
+.card button:hover{
+
+background:#003d82;
+
+}
+
+/* ===========================
+   Report Form
+=========================== */
+
+#reportForm{
+
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.10);
+max-width:900px;
+margin:auto;
+
+}
+
+#reportForm label{
+
+display:block;
+margin-top:15px;
+font-weight:600;
+
+}
+
+#reportForm input,
+#reportForm select{
+
+width:100%;
+padding:12px;
+margin-top:8px;
+border-radius:8px;
+border:1px solid #cccccc;
+
+}
+
+#reportForm button{
+
+margin-top:25px;
+width:100%;
+padding:15px;
+font-size:18px;
+background:#0b7a35;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+
+}
+
+#reportForm button:hover{
+
+background:#086028;
+
+}/* ===========================
+   Footer
+=========================== */
 
 footer{
-    margin-top:30px;
-    text-align:center;
-    padding:20px;
-    color:#666;
-    border-top:1px solid #ddd;
+background:#003366;
+color:#ffffff;
+text-align:center;
+padding:30px 20px;
+margin-top:40px;
 }
 
-@media (max-width:768px){
-
-.container{
-    width:98%;
-    padding:15px;
+footer hr{
+margin-bottom:20px;
+border:1px solid rgba(255,255,255,.25);
 }
 
-.header h1{
-    font-size:26px;
+footer h3{
+margin-bottom:10px;
+font-size:26px;
 }
 
-button{
-    width:100%;
+footer p{
+margin:6px 0;
+font-size:15px;
+}
+
+/* ===========================
+   Dark Mode
+=========================== */
+
+.dark-mode{
+background:#121212;
+color:#ffffff;
+}
+
+.dark-mode .card,
+.dark-mode #reportForm{
+background:#1f1f1f;
+color:#ffffff;
+}
+
+.dark-mode input,
+.dark-mode select{
+background:#2b2b2b;
+color:#ffffff;
+border:1px solid #555;
+}
+
+.dark-mode .header{
+background:#000000;
+}
+
+.dark-mode footer{
+background:#000000;
+}
+
+/* ===========================
+   Responsive Design
+=========================== */
+
+@media(max-width:768px){
+
+.header{
+flex-direction:column;
+padding:15px;
+}
+
+nav{
+margin-top:15px;
+text-align:center;
+}
+
+nav a{
+display:inline-block;
+margin:8px;
+}
+
+.hero h1{
+font-size:30px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.dashboard h2,
+.features h2,
+.quickTools h2,
+.report h2{
+font-size:26px;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.heroButtons button{
+width:100%;
+}
+
+.card button{
+width:100%;
+}
+
+}
+
+/* ===========================
+   Simple Animation
+=========================== */
+
+.card{
+animation:fadeUp .6s ease;
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
 }
 
 }
