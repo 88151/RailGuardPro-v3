@@ -1,180 +1,404 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>RailGuardPro v3</title>
 
 <link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
 <header class="header">
 
-<h1>🚆 RailGuardPro v3</h1>
+<div class="logo">
 
-<p>
-Professional Running Report Generator
-for Indian Railway Train Managers
-</p>
+🚆 RailGuardPro v3
+
+</div>
+
+<nav>
+
+<a href="#">Dashboard</a>
+
+<a href="#">Report</a>
+
+<a href="#">WTT</a>
+
+<a href="#">Crew</a>
+
+<a href="#">Defect</a>
+
+<a href="#">AI</a>
+
+</nav>
 
 </header>
 
-<div class="container">
+<section class="hero">
 
-<h2>Train Details</h2>
+<h1>
+
+RailGuardPro v3
+
+</h1>
+
+<p>
+
+Professional Smart Railway Assistant
+
+for Indian Railway Train Managers
+
+</p>
+
+<div class="heroButtons">
+
+<button id="loginBtn">
+
+Login
+
+</button>
+
+<button id="themeBtn">
+
+Dark Mode
+
+</button>
+
+</div>
+
+</section>
+
+<section class="dashboard">
+
+<h2>
+
+Main Dashboard
+
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+🚆
+
+<h3>
+
+Train Report
+
+</h3>
+
+<p>
+
+Generate Running Report
+
+</p>
+
+</div>
+
+<div class="card">
+
+📄
+
+<h3>
+
+Working Time Table
+
+</h3>
+
+<p>
+
+Upload PDF & Search Train
+
+</p>
+
+</div>
+
+<div class="card">
+
+👨‍✈️
+
+<h3>
+
+Crew Module
+
+</h3>
+
+<p>
+
+Crew Details
+
+</p>
+
+</div>
+
+<div class="card">
+
+⚠️
+
+<h3>
+
+Defect Report
+
+</h3>
+
+<p>
+
+Coach / Brake Van / Loco
+
+</p>
+
+</div></div>
+
+</section>
+
+<section class="features">
+
+<h2>Smart Railway Modules</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🚆 Train Report Generator</h3>
+<p>Create Professional Running Reports</p>
+</div>
+
+<div class="card">
+<h3>📄 WTT PDF Upload</h3>
+<p>Upload Working Time Table PDF</p>
+<input type="file" id="wttPdf" accept=".pdf">
+<button onclick="uploadWTT()">Upload PDF</button>
+</div>
+
+<div class="card">
+<h3>🔍 Train Search</h3>
+<input
+type="text"
+id="trainSearch"
+placeholder="Enter Train Number">
+<button onclick="searchTrain()">
+Search
+</button>
+</div>
+
+<div class="card">
+<h3>🤖 AI Assistant</h3>
+<p>
+Enter Train Number and AI will automatically load WTT details.
+</p>
+
+<button onclick="openAI()">
+Open AI Assistant
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>👨‍✈️ Crew Module</h3>
+
+<button onclick="openCrew()">
+
+Crew Details
+
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>⚠️ Defect Report</h3>
+
+<button onclick="openDefect()">
+
+Open Defect Report
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="report">
+
+<h2>Running Report</h2>
 
 <form id="reportForm">
 
 <label>Train Number</label>
+
 <input
 type="text"
 id="trainNo"
-placeholder="Enter Train Number"
-required>
+placeholder="Train Number">
 
 <label>Train Name</label>
+
 <input
 type="text"
-id="trainName"
-placeholder="Enter Train Name">
+id="trainName">
 
 <label>Date</label>
+
 <input
 type="date"
 id="date">
 
 <label>Section</label>
+
 <input
 type="text"
-id="section"
-placeholder="Example : BPL - ET">
+id="section">
 
-<label>Origin Station</label>
+<label>Origin</label>
+
 <input
 type="text"
 id="origin">
 
-<label>Destination Station</label>
+<label>Destination</label>
+
 <input
 type="text"
 id="destination">
 
-<label>Loco Number</label>
-<input
-type="text"
-id="locoNo">
+<label>Scheduled Arrival</label>
 
-<label>Loco Type</label>
-
-<select id="locoType">
-
-<option>WAP-7</option>
-
-<option>WAP-4</option>
-
-<option>WAG-9</option>
-
-<option>WDP-4</option>
-
-<option>Other</option>
-
-</select>
-
-<label>Total Load (Tonnes)</label>
-
-<input
-type="number"
-id="load">
-
-<label>Total Coaches</label>
-
-<input
-type="number"
-id="coaches"><h2>Running Details</h2>
-
-<label>Departure Time</label>
 <input
 type="time"
-id="departureTime">
+id="schArrival">
 
-<label>Arrival Time</label>
+<label>Actual Arrival</label>
+
 <input
 type="time"
-id="arrivalTime">
+id="actArrival">
 
-<label>Total Distance (KM)</label>
+<label>Scheduled Departure</label>
+
 <input
-type="number"
-id="distance">
+type="time"
+id="schDeparture">
 
-<label>Total Detention (Minutes)</label>
+<label>Actual Departure</label>
+
 <input
-type="number"
-id="detention">
-
-<label>Reason for Detention</label>
-<textarea
-id="reason"
-rows="4"
-placeholder="Enter detention reason..."></textarea>
-
-<label>Special Remarks</label>
-<textarea
-id="remarks"
-rows="4"
-placeholder="Enter special remarks..."></textarea>
-
-<div class="button-group">
+type="time"
+id="actDeparture">
 
 <button
 type="button"
 onclick="generateReport()">
+
 Generate Report
-</button>
 
-<button
-type="reset">
-Reset
 </button>
-
-</div>
 
 </form>
 
-<hr>
+</section><section class="quickTools">
 
-<h2>Generated Report</h2>
+<h2>Quick Tools</h2>
 
-<div id="reportOutput">
+<div class="cards">
 
+<div class="card">
+<h3>📊 PDF Report Export</h3>
+<p>Export Running Report in PDF Format</p>
+<button onclick="exportPDF()">Export PDF</button>
+</div>
+
+<div class="card">
+<h3>🌐 Language</h3>
+<select id="language">
+<option value="hi">हिन्दी</option>
+<option value="en">English</option>
+</select>
+</div>
+
+<div class="card">
+<h3>🌙 Theme</h3>
+<button onclick="toggleTheme()">
+Dark / Light Mode
+</button>
+</div>
+
+<div class="card">
+<h3>💾 Offline Storage</h3>
 <p>
-Your generated running report will appear here.
+Save Reports on Mobile
 </p>
+</div>
 
-</div><hr>
+<div class="card">
+<h3>☁ Cloud Backup</h3>
+<p>
+Future Feature
+</p>
+</div>
+
+<div class="card">
+<h3>ℹ Version</h3>
+<p>
+RailGuardPro v3.0
+</p>
+</div>
+
+</div>
+
+</section>
 
 <footer>
+
+<hr>
 
 <h3>RailGuardPro v3</h3>
 
 <p>
-Professional Running Report Generator
+
+Professional Smart Railway Assistant
+
 for Indian Railway Train Managers
+
 </p>
 
 <p>
+
+Designed by
+
+Munesh Kumar Meena
+
+</p>
+
+<p>
+
+Version 3.0
+
+</p>
+
+<p>
+
 © 2026 RailGuardPro
-All Rights Reserved.
+
 </p>
 
 </footer>
 
-</div>
-
 <script src="script.js"></script>
 
 </body>
+
 </html>
