@@ -258,4 +258,31 @@ window.onload = function () {
 
     console.log("RailGuardPro v3 Loaded Successfully");
 
-};
+};// ======================================
+// Auto Detention Calculator
+// ======================================
+
+function calculateDetention() {
+
+    const schArrival = document.getElementById("schArrival").value;
+    const actArrival = document.getElementById("actArrival").value;
+
+    if (!schArrival || !actArrival) {
+        return;
+    }
+
+    const sch = new Date("2000-01-01T" + schArrival);
+    const act = new Date("2000-01-01T" + actArrival);
+
+    let diff = (act - sch) / 60000;
+
+    if (diff < 0) {
+        diff = 0;
+    }
+
+    const detention = document.getElementById("detention");
+
+    if (detention) {
+        detention.value = diff + " Minutes";
+    }
+}
