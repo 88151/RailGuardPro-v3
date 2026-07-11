@@ -1,13 +1,15 @@
 // ======================================
-// RailGuardPro v3
-// Professional Railway Smart Assistant
+// RailGuardPro v3.1 Professional Edition
 // ======================================
 
-let darkMode = false;
+console.log("RailGuardPro v3.1 Loaded");
 
 // ----------------------------
 // Dark Mode
 // ----------------------------
+
+let darkMode = false;
+
 function toggleTheme() {
 
     darkMode = !darkMode;
@@ -22,63 +24,26 @@ function toggleTheme() {
 // ----------------------------
 // Login
 // ----------------------------
-document.getElementById("loginBtn").addEventListener("click", function () {
 
-    alert("Login Module Coming Soon");
+const loginBtn = document.getElementById("loginBtn");
 
-});
+if (loginBtn) {
 
-// ----------------------------
-// AI Assistant
-// ----------------------------
-function openAI() {
+    loginBtn.addEventListener("click", function () {
 
-    alert("RailGuard AI Assistant Coming Soon");
+        alert("Welcome to RailGuardPro v3.1");
+
+    });
 
 }
 
 // ----------------------------
-// Crew Module
-// ----------------------------
-function openCrew() {
-
-    alert("Crew Module");
-
-}
-
-// ----------------------------
-// Defect Module
-// ----------------------------
-function openDefect() {
-
-    alert("Defect Report Module");
-
-}
-
-// ----------------------------
-// WTT Upload
-// ----------------------------
-function uploadWTT() {
-
-    const file = document.getElementById("wttPdf").files[0];
-
-    if (!file) {
-
-        alert("Please Select WTT PDF");
-
-        return;
-
-    }
-
-    alert(file.name + " Uploaded Successfully");
-
-}// ======================================
 // Train Search
-// ======================================
+// ----------------------------
 
 function searchTrain() {
 
-    let trainNo = document.getElementById("trainSearch").value.trim();
+    const trainNo = document.getElementById("trainSearch").value.trim();
 
     if (trainNo === "") {
 
@@ -88,38 +53,26 @@ function searchTrain() {
 
     }
 
-    alert("Searching Train : " + trainNo);
+    alert("Searching Train No: " + trainNo);
 
-}
-
-// ======================================
-// Generate Running Report
+}// ======================================
+// Running Report
 // ======================================
 
 function generateReport() {
 
     const report = {
-
         trainNo: document.getElementById("trainNo").value,
-
         trainName: document.getElementById("trainName").value,
-
         date: document.getElementById("date").value,
-
         section: document.getElementById("section").value,
-
         origin: document.getElementById("origin").value,
-
         destination: document.getElementById("destination").value,
-
         schArrival: document.getElementById("schArrival").value,
-
         actArrival: document.getElementById("actArrival").value,
-
         schDeparture: document.getElementById("schDeparture").value,
-
-        actDeparture: document.getElementById("actDeparture").value
-
+        actDeparture: document.getElementById("actDeparture").value,
+        detention: document.getElementById("detention").value
     };
 
     localStorage.setItem(
@@ -128,7 +81,6 @@ function generateReport() {
     );
 
     alert("Running Report Saved Successfully");
-
 }
 
 // ======================================
@@ -137,128 +89,40 @@ function generateReport() {
 
 function viewSavedReport() {
 
-    let report = localStorage.getItem("RailGuard_Report");
+    const report = localStorage.getItem("RailGuard_Report");
 
     if (!report) {
-
-        alert("No Saved Report");
-
+        alert("No Saved Report Found");
         return;
-
     }
 
-    console.log(JSON.parse(report));
+    const data = JSON.parse(report);
+
+    document.getElementById("trainNo").value = data.trainNo || "";
+    document.getElementById("trainName").value = data.trainName || "";
+    document.getElementById("date").value = data.date || "";
+    document.getElementById("section").value = data.section || "";
+    document.getElementById("origin").value = data.origin || "";
+    document.getElementById("destination").value = data.destination || "";
+    document.getElementById("schArrival").value = data.schArrival || "";
+    document.getElementById("actArrival").value = data.actArrival || "";
+    document.getElementById("schDeparture").value = data.schDeparture || "";
+    document.getElementById("actDeparture").value = data.actDeparture || "";
+    document.getElementById("detention").value = data.detention || "";
 
     alert("Saved Report Loaded");
-
 }
 
 // ======================================
-// Clear Report
+// Delete Report
 // ======================================
 
 function clearReport() {
 
     localStorage.removeItem("RailGuard_Report");
 
-    alert("Report Deleted");
-
+    alert("Saved Report Deleted");
 }// ======================================
-// PDF Export (Framework)
-// ======================================
-
-function exportPDF() {
-
-    alert("PDF Export Feature will be available in next update.");
-
-}
-
-// ======================================
-// Language Change
-// ======================================
-
-const language = document.getElementById("language");
-
-if (language) {
-
-    language.addEventListener("change", function () {
-
-        if (this.value === "hi") {
-
-            alert("हिन्दी भाषा चुनी गई");
-
-        } else {
-
-            alert("English Language Selected");
-
-        }
-
-    });
-
-}
-
-// ======================================
-// Auto Fill Train Details (Future WTT)
-// ======================================
-
-function autoFillTrain(trainData) {
-
-    document.getElementById("trainName").value =
-        trainData.trainName || "";
-
-    document.getElementById("origin").value =
-        trainData.origin || "";
-
-    document.getElementById("destination").value =
-        trainData.destination || "";
-
-    document.getElementById("schArrival").value =
-        trainData.arrival || "";
-
-    document.getElementById("schDeparture").value =
-        trainData.departure || "";
-
-}
-
-// ======================================
-// WTT Database (Future)
-// ======================================
-
-let WTTDatabase = [];
-
-// ======================================
-// Future AI Search
-// ======================================
-
-function searchFromWTT(trainNo) {
-
-    let train = WTTDatabase.find(
-        t => t.trainNo === trainNo
-    );
-
-    if (train) {
-
-        autoFillTrain(train);
-
-        alert("Train Data Loaded");
-
-    } else {
-
-        alert("Train Not Found");
-
-    }
-
-}
-
-// ======================================
-// App Loaded
-// ======================================
-
-window.onload = function () {
-
-    console.log("RailGuardPro v3 Loaded Successfully");
-
-};// ======================================
 // Auto Detention Calculator
 // ======================================
 
@@ -268,6 +132,7 @@ function calculateDetention() {
     const actArrival = document.getElementById("actArrival").value;
 
     if (!schArrival || !actArrival) {
+        document.getElementById("detention").value = "";
         return;
     }
 
@@ -280,9 +145,87 @@ function calculateDetention() {
         diff = 0;
     }
 
+    document.getElementById("detention").value = diff + " Minutes";
+}
+
+// ======================================
+// PDF Export
+// ======================================
+
+function exportPDF() {
+
+    alert("PDF Export feature will be available in the next update.");
+
+}
+
+// ======================================
+// Crew Module
+// ======================================
+
+function openCrew() {
+
+    alert("Crew Module Coming Soon");
+
+}
+
+// ======================================
+// Defect Report
+// ======================================
+
+function openDefect() {
+
+    alert("Defect Report Module Coming Soon");
+
+}
+
+// ======================================
+// AI Assistant
+// ======================================
+
+function openAI() {
+
+    alert("RailGuard AI Assistant Coming Soon");
+// ======================================
+// Future WTT Database
+// ======================================
+
+const WTTDatabase = [];
+
+// Search train from WTT Database
+function searchFromWTT(trainNo) {
+
+    const train = WTTDatabase.find(
+        t => t.trainNo === trainNo
+    );
+
+    if (train) {
+
+        document.getElementById("trainName").value = train.trainName || "";
+        document.getElementById("origin").value = train.origin || "";
+        document.getElementById("destination").value = train.destination || "";
+
+        alert("Train Data Loaded");
+
+    } else {
+
+        alert("Train Not Found in WTT Database");
+
+    }
+}
+
+// ======================================
+// App Startup
+// ======================================
+
+window.onload = function () {
+
+    console.log("RailGuardPro v3.1 Started Successfully");
+
     const detention = document.getElementById("detention");
 
     if (detention) {
-        detention.value = diff + " Minutes";
+        detention.readOnly = true;
     }
+
+};
 }
