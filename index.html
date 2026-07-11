@@ -1,398 +1,239 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RailGuardPro v3.1</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>RailGuardPro v3</title>
-
-<link rel="stylesheet" href="style.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- ==========================
+     Header
+========================== -->
+
 <header class="header">
 
-<div class="logo">
+    <div class="logo">
+        🚆 RailGuardPro
+    </div>
 
-🚆 RailGuardPro v3
+    <nav>
 
-</div>
+        <a href="#home">Home</a>
 
-<nav>
+        <a href="#dashboard">Dashboard</a>
 
-<a href="#">Dashboard</a>
+        <a href="#report">Running Report</a>
 
-<a href="#">Report</a>
+        <a href="#tools">Tools</a>
 
-<a href="#">WTT</a>
+        <a href="#footer">About</a>
 
-<a href="#">Crew</a>
-
-<a href="#">Defect</a>
-
-<a href="#">AI</a>
-
-</nav>
+    </nav>
 
 </header>
 
-<section class="hero">
+<!-- ==========================
+     Hero Section
+========================== -->
 
-<h1>
+<section class="hero" id="home">
 
-RailGuardPro v3
+    <h1>
+        RailGuardPro v3.1
+    </h1>
 
-</h1>
+    <p>
+        Professional Smart Railway Assistant
+        <br>
+        for Indian Railway Train Managers
+    </p>
 
-<p>
+    <div class="heroButtons">
 
-Professional Smart Railway Assistant
+        <button id="loginBtn">
+            Login
+        </button>
 
-for Indian Railway Train Managers
+        <button id="themeBtn"
+                onclick="toggleTheme()">
+            Dark Mode
+        </button>
 
-</p>
-
-<div class="heroButtons">
-
-<button id="loginBtn">
-
-Login
-
-</button>
-
-<button id="themeBtn">
-
-Dark Mode
-
-</button>
-
-</div>
+    </div>
 
 </section>
 
-<section class="dashboard">
+<!-- ==========================
+     Dashboard
+========================== -->
+
+<section class="dashboard" id="dashboard">
 
 <h2>
-
-Main Dashboard
-
+Dashboard
 </h2>
 
-<div class="cards">
+<div class="cards"> <!-- ==========================
+     Dashboard Cards
+========================== -->
 
 <div class="card">
-
-🚆
-
-<h3>
-
-Train Report
-
-</h3>
-
-<p>
-
-Generate Running Report
-
-</p>
-
+    <h3>🚆 Running Report</h3>
+    <p>Create and save railway running reports.</p>
+    <button onclick="document.getElementById('report').scrollIntoView();">
+        Open
+    </button>
 </div>
 
 <div class="card">
-
-📄
-
-<h3>
-
-Working Time Table
-
-</h3>
-
-<p>
-
-Upload PDF & Search Train
-
-</p>
-
+    <h3>🔍 Train Search (WTT)</h3>
+    <input type="text" id="trainSearch" placeholder="Enter Train Number">
+    <button onclick="searchTrain()">
+        Search
+    </button>
 </div>
 
 <div class="card">
-
-👨‍✈️
-
-<h3>
-
-Crew Module
-
-</h3>
-
-<p>
-
-Crew Details
-
-</p>
-
+    <h3>⏱ Auto Detention</h3>
+    <p>Automatic detention calculation.</p>
+    <button onclick="document.getElementById('report').scrollIntoView();">
+        Open
+    </button>
 </div>
 
 <div class="card">
-
-⚠️
-
-<h3>
-
-Defect Report
-
-</h3>
-
-<p>
-
-Coach / Brake Van / Loco
-
-</p>
-
-</div></div>
-
-</section>
-
-<section class="features">
-
-<h2>Smart Railway Modules</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>🚆 Train Report Generator</h3>
-<p>Create Professional Running Reports</p>
+    <h3>👨‍✈️ Crew Module</h3>
+    <p>Crew information and duty tools.</p>
+    <button onclick="openCrew()">
+        Open
+    </button>
 </div>
 
 <div class="card">
-<h3>📄 WTT PDF Upload</h3>
-<p>Upload Working Time Table PDF</p>
-<input type="file" id="wttPdf" accept=".pdf">
-<button onclick="uploadWTT()">Upload PDF</button>
+    <h3>🛠 Defect Report</h3>
+    <p>Record train defects quickly.</p>
+    <button onclick="openDefect()">
+        Open
+    </button>
 </div>
 
 <div class="card">
-<h3>🔍 Train Search</h3>
-<input
-type="text"
-id="trainSearch"
-placeholder="Enter Train Number">
-<button onclick="searchTrain()">
-Search
-</button>
-</div>
-
-<div class="card">
-<h3>🤖 AI Assistant</h3>
-<p>
-Enter Train Number and AI will automatically load WTT details.
-</p>
-
-<button onclick="openAI()">
-Open AI Assistant
-</button>
-
-</div>
-
-<div class="card">
-
-<h3>👨‍✈️ Crew Module</h3>
-
-<button onclick="openCrew()">
-
-Crew Details
-
-</button>
-
-</div>
-
-<div class="card">
-
-<h3>⚠️ Defect Report</h3>
-
-<button onclick="openDefect()">
-
-Open Defect Report
-
-</button>
-
+    <h3>🤖 AI Assistant</h3>
+    <p>Railway Smart AI Assistant.</p>
+    <button onclick="openAI()">
+        Open
+    </button>
 </div>
 
 </div>
 
 </section>
 
-<section class="report">
+<!-- ==========================
+     Running Report Form
+========================== -->
 
-<h2>Running Report</h2>
+<section class="report" id="report">
 
-<form id="reportForm">
+<h2>
+Running Report
+</h2>
 
-<label>Train Number</label>
+<form id="reportForm"><!-- Train Information -->
 
-<input
-type="text"
-id="trainNo"
-placeholder="Train Number">
+<label for="trainNo">Train Number</label>
+<input type="text" id="trainNo" placeholder="Enter Train Number">
 
-<label>Train Name</label>
+<label for="trainName">Train Name</label>
+<input type="text" id="trainName" placeholder="Train Name">
 
-<input
-type="text"
-id="trainName">
+<label for="date">Date</label>
+<input type="date" id="date">
 
-<label>Date</label>
+<label for="section">Section</label>
+<input type="text" id="section" placeholder="e.g. KTE-JBP">
 
-<input
-type="date"
-id="date">
+<label for="origin">Origin</label>
+<input type="text" id="origin" placeholder="Origin Station">
 
-<label>Section</label>
+<label for="destination">Destination</label>
+<input type="text" id="destination" placeholder="Destination Station">
 
-<input
-type="text"
-id="section">
+<hr>
 
-<label>Origin</label>
+<h3>Arrival Details</h3>
 
-<input
-type="text"
-id="origin">
+<label for="schArrival">Scheduled Arrival</label>
+<input type="time" id="schArrival" onchange="calculateDetention()">
 
-<label>Destination</label>
+<label for="actArrival">Actual Arrival</label>
+<input type="time" id="actArrival" onchange="calculateDetention()">
 
-<input
-type="text"
-id="destination">
+<hr>
 
-<label>Scheduled Arrival</label>
+<h3>Departure Details</h3>
 
-<input
-type="time"
-id="schArrival">
+<label for="schDeparture">Scheduled Departure</label>
+<input type="time" id="schDeparture">
 
-<label>Actual Arrival</label>
+<label for="actDeparture">Actual Departure</label>
+<input type="time" id="actDeparture">
 
-<input
-type="time"
-id="actArrival">
+<hr>
 
-<label>Scheduled Departure</label>
+<label for="detention">Detention</label>
+<input type="text" id="detention" readonly placeholder="Auto Calculated">
 
-<input
-type="time"
-id="schDeparture">
+<button type="button" onclick="generateReport()">
+    Save Running Report
+</button>
 
-<label>Actual Departure</label>
+<button type="button" onclick="viewSavedReport()">
+    View Saved Report
+</button>
 
-<input
-type="time"
-id="actDeparture">
+<button type="button" onclick="clearReport()">
+    Delete Report
+</button>
 
-<button
-type="button"
-onclick="generateReport()">
-
-Generate Report
-
+<button type="button" onclick="exportPDF()">
+    Export PDF
 </button>
 
 </form>
 
-</section><section class="quickTools">
+</section> <!-- ==========================
+     Footer
+========================== -->
 
-<h2>Quick Tools</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>📊 PDF Report Export</h3>
-<p>Export Running Report in PDF Format</p>
-<button onclick="exportPDF()">Export PDF</button>
-</div>
-
-<div class="card">
-<h3>🌐 Language</h3>
-<select id="language">
-<option value="hi">हिन्दी</option>
-<option value="en">English</option>
-</select>
-</div>
-
-<div class="card">
-<h3>🌙 Theme</h3>
-<button onclick="toggleTheme()">
-Dark / Light Mode
-</button>
-</div>
-
-<div class="card">
-<h3>💾 Offline Storage</h3>
-<p>
-Save Reports on Mobile
-</p>
-</div>
-
-<div class="card">
-<h3>☁ Cloud Backup</h3>
-<p>
-Future Feature
-</p>
-</div>
-
-<div class="card">
-<h3>ℹ Version</h3>
-<p>
-RailGuardPro v3.0
-</p>
-</div>
-
-</div>
-
-</section>
-
-<footer>
+<footer id="footer">
 
 <hr>
 
-<h3>RailGuardPro v3</h3>
+<h3>
+🚆 RailGuardPro v3.1
+</h3>
 
 <p>
-
 Professional Smart Railway Assistant
-
 for Indian Railway Train Managers
-
 </p>
 
 <p>
-
 Designed by
-
-Munesh Kumar Meena
-
+<b>Munesh Kumar Meena</b>
 </p>
 
 <p>
-
-Version 3.0
-
+Version 3.1 Professional Edition
 </p>
 
 <p>
-
 © 2026 RailGuardPro
-
 </p>
 
 </footer>
@@ -400,5 +241,4 @@ Version 3.0
 <script src="script.js"></script>
 
 </body>
-
-</html>
+</html> 
