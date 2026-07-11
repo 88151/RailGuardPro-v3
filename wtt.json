@@ -1,0 +1,18 @@
+[
+  {
+    "trainNo": "12155",
+    "trainName": "Bhopal Express",
+    "origin": "RKMP",
+    "destination": "NZM",
+    "arrival": "08:30",
+    "departure": "08:35"
+  },
+  {
+    "trainNo": "22181",
+    "trainName": "Jabalpur Hazrat Nizamuddin SF Express",
+    "origin": "JBP",
+    "destination": "NZM",
+    "arrival": "10:15",
+    "departure": "10:20"
+  }
+]
