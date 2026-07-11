@@ -1,4 +1,18 @@
 // ======================================
+// Load WTT Database
+// ======================================
+
+let WTTDatabase = [];
+
+fetch("wtt.json")
+    .then(response => response.json())
+    .then(data => {
+        WTTDatabase = data;
+        console.log("WTT Database Loaded:", WTTDatabase);
+    })
+    .catch(error => {
+        console.error("Error loading WTT:", error);
+    });// ======================================
 // RailGuardPro v3.1 Professional Edition
 // ======================================
 
@@ -40,20 +54,33 @@ if (loginBtn) {
 // ----------------------------
 // Train Search
 // ----------------------------
-
 function searchTrain() {
 
     const trainNo = document.getElementById("trainSearch").value.trim();
 
     if (trainNo === "") {
-
         alert("Please Enter Train Number");
-
         return;
-
     }
 
-    alert("Searching Train No: " + trainNo);
+    const train = WTTDatabase.find(t => t.trainNo === trainNo);
+
+    if (!train) {
+        alert("Train Not Found");
+        return;
+    }
+
+    document.getElementById("trainName").value = train.trainName;
+    document.getElementById("origin").value = train.origin;
+    document.getElementById("destination").value = train.destination;
+    document.getElementById("schArrival").value = train.arrival;
+    document.getElementById("schDeparture").value = train.departure;
+
+    alert("Train Data Loaded Successfully");
+}
+
+
+    const trainNo = document.getElementById("trainSearch").va
 
 }// ======================================
 // Running Report
