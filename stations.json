@@ -1,0 +1,12 @@
+[
+  { "code": "KTE", "name": "Katni Junction" },
+  { "code": "JBP", "name": "Jabalpur Junction" },
+  { "code": "STA", "name": "Satna Junction" },
+  { "code": "SGO", "name": "Saugor" },
+  { "code": "BINA", "name": "Bina Junction" },
+  { "code": "ET", "name": "Itarsi Junction" },
+  { "code": "BPL", "name": "Bhopal Junction" },
+  { "code": "RKMP", "name": "Rani Kamlapati" },
+  { "code": "NZM", "name": "Hazrat Nizamuddin" },
+  { "code": "NDLS", "name": "New Delhi" }
+]
